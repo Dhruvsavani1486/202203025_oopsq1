@@ -85,6 +85,45 @@ class LL {
   
    
  }
+
+ public void AddAtIndex(int d,int data)
+ { 
+   Node newNode=new Node(data);
+   
+   Node curr=head;
+  // Node temp=head.next;
+   if(d==0)
+   {
+     newNode.next=head;
+     head=newNode;
+     return;
+   }
+   while(d>1)
+   {curr=curr.next;
+   //temp=temp.next;
+    d--;}
+   newNode.next=curr.next;
+  curr.next=newNode;
+   
+ }
+ 
+ public void DeleteAtIndex(int d)
+ {
+   Node curr=head;
+ //  Node temp=head.next
+   if(d==0)
+   {
+     head=head.next;
+     return;
+   }
+   
+   while(d>1)
+   {
+     curr=curr.next;
+     d--;
+   }
+   curr.next=curr.next.next;
+ }
  public static void main(String[] args) {
    
  LL list=new LL();
@@ -98,6 +137,11 @@ class LL {
    list.deletefirst();
    list.print();
    list.deletelast();
+   list.print();
+   list.AddAtIndex(2,35) ;
+   list.AddAtIndex(2,40) ;
+   list.print();
+   list.DeleteAtIndex(3);
    list.print();
  }
 }
